@@ -1,0 +1,7 @@
+---
+# tasks file for wiredobjects.ntp
+
+- include_tasks: package.yml
+- include_tasks: config.yml
+- include_tasks: firewall.yml
+- include_tasks: service.yml

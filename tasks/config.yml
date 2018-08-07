@@ -1,0 +1,36 @@
+---
+# subtasks file config for wiredobjects.ntp
+
+- name: Add config dir for ntp
+  file:
+    path: "{{ ntp_config_dir }}"
+    owner: root
+    group: root
+    mode: 0755
+    state: directory
+  tags:
+    - config
+
+- name: Render config files for ntp
+  template:
+    src: "{{ item }}.j2"
+    dest: "{{ ntp_config_file }}"
+    owner: root
+    group: root
+    mode: 0644
+  loop:
+    - "ntp.conf"
+  register: state_ntp_config_file
+  notify:
+    - service restart ntp
+  tags:
+    - config
+
+# - name: Validate config for service ntp
+#   shell: /path/to/check_command --with-config-file-param /path/to/configfile
+#   when: ntp_config_validate == "yes" and state_ntp_config_file.changed
+#   notify:
+#     - service restart ntp
+#   tags:
+#     - config
+#     - config_validate

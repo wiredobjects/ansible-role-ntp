@@ -1,0 +1,18 @@
+---
+# subtasks file service for wiredobjects.ntp
+
+- name: Enable/Disable service ntp
+  service:
+    name: "{{ ntp_service_name }}"
+    enabled: "{{ ntp_service_enabled }}"
+  tags:
+    - service
+    - service_activation
+
+- name: Start/Stop service ntp
+  service:
+    name: "{{ ntp_service_name }}"
+    state: "{{ ntp_service_state }}"
+  tags:
+    - service
+    - service_runstate

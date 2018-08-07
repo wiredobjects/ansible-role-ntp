@@ -1,0 +1,12 @@
+---
+# subtasks file firewall for wiredobjects.ntp
+
+### WORK IN PROGRESS
+#- name: Add/Remove firewall rules for service ntp
+#  firewalld:
+#    service: https
+#    permanent: true
+#    state: enabled
+#  when: ntp_firewall_enabled == 'yes'
+#  tags:
+#    - firewall

@@ -1,0 +1,9 @@
+---
+# subtasks file package for wiredobjects.ntp
+
+- name: Add/Remove package ntp
+  package:
+    name: "{{ ntp_package_name }}"
+    state: "{{ ntp_package_state }}"
+  tags:
+    - package
